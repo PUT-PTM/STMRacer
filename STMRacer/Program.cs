@@ -12,6 +12,7 @@ namespace STMRacer
         {
 
             Console.WriteLine("Pierwszy program");
+            Console.ReadKey();
         }
     }
 }
