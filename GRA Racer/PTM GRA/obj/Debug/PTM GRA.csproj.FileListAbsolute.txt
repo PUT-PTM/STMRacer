@@ -1,0 +1,6 @@
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\bin\Debug\PTM GRA.exe.config
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\bin\Debug\PTM GRA.exe
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\bin\Debug\PTM GRA.pdb
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\obj\Debug\PTM GRA.csprojResolveAssemblyReference.cache
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\obj\Debug\PTM GRA.exe
+C:\Program Files\MOJE\POLITECHNIKA\PTM GRA\PTM GRA\PTM GRA\obj\Debug\PTM GRA.pdb
