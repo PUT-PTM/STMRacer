@@ -62,7 +62,8 @@ namespace WindowsFormsApplication1
         public static int punkty = 0;
         public static int trafienie = 0;
         public static int licznik = 0;
-       
+        
+
         string znak = @"..\..\znak.jpg";
         string znak2 = @"..\..\znak2.jpg";
 
