@@ -53,7 +53,7 @@ namespace WindowsFormsApplication1
         }
         
         
-        private SerialPort port = new SerialPort("COM3",9600, Parity.None, 8, StopBits.One);  
+        private SerialPort port = new SerialPort("COM5",9600, Parity.None, 8, StopBits.One);  
 
         public static int wro1;
         public static int wro2;
@@ -295,7 +295,7 @@ namespace WindowsFormsApplication1
         {
             port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             //port.Open();
-            if(port.IsOpen)
+            if(!port.IsOpen)
             {
                 port.Open();
                 textBox1.Text = "OK";    
@@ -387,10 +387,17 @@ namespace WindowsFormsApplication1
             }
         }
 
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            port.Close();
+           
+           
+                port.Close();
+            
+
         }
+        
 
     }
+    
 }
