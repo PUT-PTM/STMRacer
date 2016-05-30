@@ -86,11 +86,7 @@ namespace WindowsFormsApplication1
             }
             rysgracz();
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> origin/master
         // wykonanie ruchu w lewo
         public void wlewo()
         {
@@ -259,11 +255,7 @@ namespace WindowsFormsApplication1
         {
             port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             //port.Open();
-<<<<<<< HEAD
             if (!port.IsOpen)
-=======
-            if (port.IsOpen)
->>>>>>> origin/master
             {
                 port.Open();
                 textBox1.Text = "OK";
@@ -361,8 +353,4 @@ namespace WindowsFormsApplication1
         }
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master

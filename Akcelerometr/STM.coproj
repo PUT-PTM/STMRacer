@@ -87,9 +87,9 @@
     <File name="usb_lib/otg/usb_regs.h" path="../../../../Desktop/STM_CONTROLLER-/STM_CONTROLLER !!!/usb_lib/otg/usb_regs.h" type="1"/>
     <File name="stm32f4_discovery_lis302dl.h" path="stm32f4_discovery_lis302dl.h" type="1"/>
     <File name="ucb_conf/usb_bsp.h" path="usb_conf/usb_bsp.h" type="1"/>
-    <File name="usb_lib/otg/usb_defines.h" path="../../../../Desktop/STM_CONTROLLER-/STM_CONTROLLER !!!/usb_lib/otg/usb_defines.h" type="1"/>
     <File name="usb_lib/cdc" path="" type="2"/>
     <File name="usb_lib/core/usbd_req.c" path="../../../../Desktop/STM_CONTROLLER-/STM_CONTROLLER !!!/usb_lib/core/usbd_req.c" type="1"/>
+    <File name="usb_lib/otg/usb_defines.h" path="../../../../Desktop/STM_CONTROLLER-/STM_CONTROLLER !!!/usb_lib/otg/usb_defines.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dac.h" path="cmsis_lib/include/stm32f4xx_dac.h" type="1"/>
     <File name="usb_lib/cdc/usbd_cdc_vcp.c" path="../../../../Desktop/STM_CONTROLLER-/STM_CONTROLLER !!!/usb_lib/cdc/usbd_cdc_vcp.c" type="1"/>

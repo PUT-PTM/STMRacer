@@ -94,28 +94,27 @@ int main(void)
 
 	I2S_Cmd(CODEC_I2S, ENABLE);
 
+
+	uint16_t dzwiek;
+
+
+	unsigned int i;
 	int timer;
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_TimeBaseStructure.TIM_Period = 20000;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseStructure.TIM_Prescaler = 100;
+	TIM_TimeBaseStructure.TIM_Prescaler = 500;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
 	TIM_Cmd(TIM2, ENABLE);
 
-	const uint8_t function[10] = { 0x10,0x20,0x30,0x40,0x40,0x30,0x20,0x10,0x80, 0x90 };
-
 	while (1){
-
-
 
 		LIS302DL_Read(&przys_x, LIS302DL_OUT_X_ADDR, 1);
 		LIS302DL_Read(&przys_y, LIS302DL_OUT_Y_ADDR, 1);
 		timer = TIM_GetCounter(TIM2);
-
-
 
 		if(przys_x>30)
 		{
@@ -123,11 +122,11 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_14);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_12|GPIO_Pin_15|GPIO_Pin_13);
 
-			if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			{
-				SPI_I2S_SendData(CODEC_I2S, function);
+			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+			//{
 
-			}
+			SPI_I2S_SendData(CODEC_I2S, 10000);
+			//}
 
 		}
 
@@ -137,11 +136,11 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_15);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_13|GPIO_Pin_12|GPIO_Pin_14);
 
-			if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			{
-				SPI_I2S_SendData(CODEC_I2S, function);
+			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+			//{
 
-			}
+				SPI_I2S_SendData(CODEC_I2S, 15000);
+			//}
 		}
 
 		if(przys_x<-30)
@@ -150,18 +149,13 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_12);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);
 
-			if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			{
-				SPI_I2S_SendData(CODEC_I2S, function);
+			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+			//{
 
-			}
+			SPI_I2S_SendData(CODEC_I2S, 20000);
+			//}
 
 		}
-
-		if((przys_x>-30) &&  (przys_x<30) && (przys_y>-30) &&  (przys_y<30))
-				{
-			znaki[0]='X';
-				}
 
 		if(przys_y>30)
 		{
@@ -169,11 +163,11 @@ int main(void)
 				GPIO_SetBits(GPIOD,GPIO_Pin_13);
 				GPIO_ResetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12);
 
-				if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-				{
-					SPI_I2S_SendData(CODEC_I2S, function);
+				//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+				//{
 
-				}
+					SPI_I2S_SendData(CODEC_I2S, 0x1ca4);
+				//}
 		}
 
 		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
@@ -182,7 +176,7 @@ int main(void)
 			GPIO_SetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12|GPIO_Pin_13);
 		}
 
-		if(timer==250){
+		if(timer==500){
 			VCP_send_buffer(&znaki,1);
 		}
 		GPIO_ResetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12|GPIO_Pin_13);

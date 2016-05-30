@@ -34,24 +34,24 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Grzegorz/Documents/GitHub/STMRacer/Akcelerometr/main.c" title="main.c" tooltip="C:/Users/Grzegorz/Documents/GitHub/STMRacer/Akcelerometr/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3735" selectionTopPixel="1665"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4541" selectionTopPixel="2482"/>
 </editor>
 <editor id="org.coocox.component.board.ui.editor.BoardBrowserEditor" name="Board" partName="Repository" title="Repository" tooltip="Board" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.component.board.ui.editor.BoardEditorElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="0" verticalPosition="0"/>
+<input factoryID="org.coocox.component.board.ui.editor.BoardEditorElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="327"/>
 </input>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_spi.c" partName="stm32f4xx_spi.c" path="C:/Users/Grzegorz/Documents/GitHub/STMRacer/Akcelerometr/cmsis_lib/source/stm32f4xx_spi.c" title="stm32f4xx_spi.c" tooltip="C:/Users/Grzegorz/Documents/GitHub/STMRacer/Akcelerometr/cmsis_lib/source/stm32f4xx_spi.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM/cmsis_lib/source/stm32f4xx_spi.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="36092" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="4847" selectionTopPixel="13929"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" partName="main.h" path="C:/Users/Grzegorz/Desktop/simpleAudioExample/main.h" title="main.h" tooltip="C:/Users/Grzegorz/Desktop/simpleAudioExample/main.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM/main.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="267" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="557" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="25">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="26">
 <expanded>
 <element path="/STM"/>
 <element path="/STM/cmsis"/>
@@ -61,9 +61,6 @@
 <element path="/STM/cmsis_lib/source"/>
 <element path="/STM/usb_lib"/>
 </expanded>
-<selection>
-<element path="/STM/codec.h"/>
-</selection>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
@@ -171,7 +168,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.1754386" ratioLeft="150" ratioRight="705" relationship="4" relative="org.eclipse.ui.internal.ViewStack@bb8944"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@124799e" ratio="0.5964912" ratioLeft="374" ratioRight="253" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@124799e" ratio="0.6602871" ratioLeft="414" ratioRight="213" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -290,18 +287,50 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/codec.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/codec.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/cmsis_lib/source/stm32f4xx_i2c.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/codec.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/cmsis_lib/source/stm32f4xx_spi.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/main.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/main.h"/>
-<editor factoryID="org.coocox.component.board.ui.editor.BoardEditorElementFactory" id="org.coocox.component.board.ui.editor.BoardBrowserEditor">
-<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="0" verticalPosition="0"/>
-</editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM/cmsis_lib/source/stm32f4xx_spi.c"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
-<org.coocox.welcome.ui.WelcomePage/>
-</editor>
 </editors>
+<item historyLabel="codec.c" index="1">
+<position/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position/>
+</item>
+<item historyLabel="codec.h" index="2">
+<position/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position info="not_deleted" x="7191" y="0"/>
+</item>
+<item historyLabel="codec.h" index="2">
+<position info="not_deleted" x="2217" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_i2c.c" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="codec.h" index="2">
+<position info="not_deleted" x="2262" y="0"/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position info="not_deleted" x="236" y="0"/>
+</item>
+<item historyLabel="codec.h" index="2">
+<position info="not_deleted" x="2237" y="21"/>
+</item>
+<item historyLabel="codec.c" index="1">
+<position info="not_deleted" x="3102" y="0"/>
+</item>
 <item historyLabel="codec.h" index="2">
 <position info="not_deleted" x="2310" y="0"/>
 </item>
@@ -314,7 +343,7 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="336" y="0"/>
 </item>
-<item historyLabel="codec.c" index="3">
+<item historyLabel="codec.c" index="4">
 <position info="not_deleted" x="165" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -332,19 +361,19 @@
 <item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="stm32f4xx_spi.c" index="4">
+<item historyLabel="stm32f4xx_spi.c" index="5">
 <position info="not_deleted" x="4847" y="4"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2533" y="0"/>
 </item>
-<item historyLabel="stm32f4xx_spi.c" index="4">
+<item historyLabel="stm32f4xx_spi.c" index="5">
 <position info="not_deleted" x="4847" y="4"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="main.h" index="5">
+<item historyLabel="main.h" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -410,43 +439,8 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3832" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3384" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3386" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3005" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.h" index="6">
-<position info="not_deleted" x="557" y="2"/>
-</item>
-<item historyLabel="Repository" index="7"/>
-<item historyLabel="stm32f4xx_spi.c" index="8">
-<position info="not_deleted" x="4847" y="4"/>
-</item>
-<item historyLabel="welcome" index="9"/>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3343" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3612" y="22"/>
-</item>
-<item historyLabel="main.h" index="6">
-<position info="not_deleted" x="267" y="0"/>
-</item>
-<item historyLabel="stm32f4xx_spi.c" index="8">
-<position info="not_deleted" x="36092" y="0"/>
-</item>
 <item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="3612" y="22"/>
+<position info="not_deleted" x="3384" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
