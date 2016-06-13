@@ -261,7 +261,10 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
             if (comboBox1.Text == "Wybierz port com")
             {
                 MessageBox.Show("Nie wybrałeś portu com");
@@ -344,7 +347,11 @@ namespace WindowsFormsApplication1
         {
             licznik++;
 
+<<<<<<< HEAD
             if (licznik == 2 && over == false)
+=======
+            if (licznik == 3 && over == false)
+>>>>>>> origin/master
             {
                 if (e.KeyCode == Keys.W)
                 {
