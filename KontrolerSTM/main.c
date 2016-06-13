@@ -1,4 +1,5 @@
 #include "stm32f4xx_conf.h"
+#include "stm32f4xx_rcc.h"
 #include "stm32f4xx.h"
 #include "stm32f4xx_gpio.h"
 #include "usbd_cdc_core.h"
@@ -33,7 +34,8 @@ __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
 	 	LIS302DL_Init(&AccInitStr);
 
  	GPIO_InitTypeDef  GPIO_InitStructure;
- 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+ 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOD, ENABLE);
+ 	//RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13| GPIO_Pin_14| GPIO_Pin_15;
  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
@@ -68,12 +70,22 @@ __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
    }
  }
 
+const int16_t dzwiek[] = {0xffc3,0xffcc,0xffe8,0xffe7,0xffea,0xffe7,0xffeb,0xffdf,0xffc0,
+		0xffc5,0xffc1,0xffc6,0xffbf,0xffdd,0x1b,0x13,0x19,0x13,0x41,
+		0x40,0x43,0x40,0x44,0x3d,0x3a,0x36,0x3b,0x34,0x3f,
+		0x21,0xffdc,0xffe2,0xffe0,0xffe1,0xffe1,0xffdd,0xffd5,0xffd5,0xffd5,
+		0xffd5,0xffd9,0x3,0x30,0x2a,0x2e,0x2b,0x2c,0x25,0x25,
+		0x24,0x25,0x23,0x2a,0x3d,0x39,0x3d,0x39,0x3d,0x38,
+		0x3a,0x35,0x3b,0x33,0x3e,0x16,0xffc3,0xffcc,0xffc7,0xffca,
+		0xffcd,0xfffe,0x2c,0x29,0x2a,0x2a,0x27,0x1f,0x1d,0x1f};
+
+
 
 int main(void)
 {
 	SystemInit();
 
-	for(int i =0; i<1000;i++);
+	for(int i =0; i<1000;i++){} ;
 
 	init();
 
@@ -87,16 +99,12 @@ int main(void)
 
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+	//RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
 
 	codec_init();
 	codec_ctrl_init();
 
 	I2S_Cmd(CODEC_I2S, ENABLE);
-
-
-	uint16_t dzwiek;
-
 
 	unsigned int i;
 	int timer;
@@ -104,7 +112,7 @@ int main(void)
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_TimeBaseStructure.TIM_Period = 20000;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseStructure.TIM_Prescaler = 500;
+	TIM_TimeBaseStructure.TIM_Prescaler = 250;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
@@ -122,11 +130,12 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_14);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_12|GPIO_Pin_15|GPIO_Pin_13);
 
-			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			//{
+			while (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE) == RESET)
+			{
 
-			SPI_I2S_SendData(CODEC_I2S, 10000);
-			//}
+			SPI_I2S_SendData(CODEC_I2S, dzwiek);
+
+			}
 
 		}
 
@@ -136,11 +145,13 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_15);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_13|GPIO_Pin_12|GPIO_Pin_14);
 
-			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			//{
+			if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE) == RESET)
+			{
+				while(1)
+				SPI_I2S_SendData(CODEC_I2S, 0xFFFF);
 
-				SPI_I2S_SendData(CODEC_I2S, 15000);
-			//}
+
+			}
 		}
 
 		if(przys_x<-30)
@@ -149,11 +160,13 @@ int main(void)
 			GPIO_SetBits(GPIOD,GPIO_Pin_12);
 			GPIO_ResetBits(GPIOD, GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);
 
-			//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-			//{
+			if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+			{
 
-			SPI_I2S_SendData(CODEC_I2S, 20000);
-			//}
+			SPI_I2S_SendData(CODEC_I2S, 0xFF00);
+
+
+			}
 
 		}
 
@@ -163,11 +176,12 @@ int main(void)
 				GPIO_SetBits(GPIOD,GPIO_Pin_13);
 				GPIO_ResetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12);
 
-				//if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
-				//{
+				if (SPI_I2S_GetFlagStatus(CODEC_I2S, SPI_I2S_FLAG_TXE))
+				{
 
-					SPI_I2S_SendData(CODEC_I2S, 0x1ca4);
-				//}
+					SPI_I2S_SendData(CODEC_I2S, dzwiek);
+
+				}
 		}
 
 		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
@@ -176,8 +190,10 @@ int main(void)
 			GPIO_SetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12|GPIO_Pin_13);
 		}
 
-		if(timer==500){
+		if(TIM_GetFlagStatus(TIM2,TIM_FLAG_Update) == 1){
 			VCP_send_buffer(&znaki,1);
+
+			TIM_ClearFlag(TIM2,TIM_FLAG_Update);
 		}
 		GPIO_ResetBits(GPIOD, GPIO_Pin_14|GPIO_Pin_15|GPIO_Pin_12|GPIO_Pin_13);
 	}

@@ -1,0 +1,27 @@
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe.config
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.pdb
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\GRA PTM.csprojResolveAssemblyReference.cache
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.GRA_PTM.resources
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\GRA PTM.csproj.GenerateResource.Cache
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.exe
+C:\Program Files\MOJE\POLITECHNIKA\GRA PTM\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.exe
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\GRA PTM.csprojResolveAssemblyReference.cache
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.GRA_PTM.resources
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Grzegorz\Desktop\GRA PTM\GRA PTM\obj\Release\GRA PTM.csproj.GenerateResource.Cache
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.exe
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\GRA PTM.csprojResolveAssemblyReference.cache
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.GRA_PTM.resources
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\obj\Release\GRA PTM.csproj.GenerateResource.Cache
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.exe
+C:\Users\Grzegorz\Documents\GitHub\STMRacer\GRA PTM\GRA PTM\bin\Release\WindowsFormsApplication1.pdb
