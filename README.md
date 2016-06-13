@@ -23,9 +23,9 @@ If you want to start the game with the microcontroller's movements support: <br 
 * Connect the device to your PC using microUSB->USB and miniUSB->USB cables. You can also plug in headphones to the audio socket. <br />
 * Compile the program and send it to your Discovery board. <br />
 * Afterwards run the project in C# from GRA PTM folder or run .exe application from GRA PTM/GRA PTM/bin/Release "PTM RACER.exe". <br />
-*Follow the instructions sent by the application. <br />
+* Follow the instructions sent by the application. <br />
 
-*Have fun :)
+* Have fun :)
 
 Attributions
 ---------------
