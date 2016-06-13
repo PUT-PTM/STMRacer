@@ -27,8 +27,9 @@ namespace WindowsFormsApplication1
             rysbrzegi();
         }
 
-        private SerialPort port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
 
+        private SerialPort port;
+        
         public static int wro1;
         public static int wro2;
         public static int gracz = 232;
@@ -36,6 +37,8 @@ namespace WindowsFormsApplication1
         public static int punkty = 0;
         public static int trafienie = 0;
         public static int licznik = 0;
+        public static bool over = false;
+        public static int ruchy = 0;
 
         string znak = @"..\..\znak.jpg";
         string znak2 = @"..\..\znak2.jpg";
@@ -206,20 +209,23 @@ namespace WindowsFormsApplication1
         // funkcja sluzaca do sprawdzenia czy nie wystapila kolizja
         public void czykolizja()
         {
-            if (gracz == wro1 - 15 || gracz == wro1 - 16 || gracz == wro1 - 17 || gracz == wro1 - 14 || gracz == wro1 - 13 || gracz == wro1 - 31 || gracz == wro1 - 29 || gracz == wro1 - 44 || gracz == wro1 - 46 ||
+            if (ruchy > 4 && gracz == wro1 - 15 || gracz == wro1 - 16 || gracz == wro1 - 17 || gracz == wro1 - 14 || gracz == wro1 - 13 || gracz == wro1 - 31 || gracz == wro1 - 29 || gracz == wro1 - 44 || gracz == wro1 - 46 ||
                 gracz == wro2 - 15 || gracz == wro2 - 16 || gracz == wro2 - 17 || gracz == wro2 - 14 || gracz == wro2 - 13 || gracz == wro2 - 31 || gracz == wro2 - 29 || gracz == wro2 - 44 || gracz == wro1 - 46)
             {
                 if (trafienie == 0)
                 {
                     label5.Invoke(new Action(delegate() { label5.Text = "-"; }));
+                    ruchy = 0;
                 }
                 if (trafienie == 1)
                 {
                     label6.Invoke(new Action(delegate() { label6.Text = "-"; }));
+                    ruchy = 0;
                 }
                 if (trafienie == 2)
                 {
                     label7.Invoke(new Action(delegate() { label7.Text = "-"; }));
+                    ruchy = 0;
                 }
                 if (trafienie == 3)
                 {
@@ -228,6 +234,7 @@ namespace WindowsFormsApplication1
                         //pB[i].BackgroundImage = System.Drawing.Image.FromFile(znak);
                         pB[i].Invoke(new Action(delegate() { pB[i].Image = System.Drawing.Image.FromFile(znak); }));
                     }
+                    // napis game over
                     int[] tabgameover = new int[89] { 30, 31, 32, 34, 35, 36, 38, 40, 42, 43, 44, 45, 49, 51, 53, 54, 55, 57, 60, 62, 64, 65, 66, 68, 70, 72, 73, 74, 75, 77, 79, 81, 83, 85, 87, 90, 91, 92, 94, 96, 98, 100, 102, 103, 104, 135, 136, 137, 139, 141, 143, 144, 145, 147, 148, 149, 150, 152, 154, 156, 158, 162, 164, 165, 167, 169, 171, 173, 174, 175, 177, 178, 179, 180, 182, 184, 186, 188, 192, 193, 195, 196, 197, 200, 203, 204, 205, 207, 209 };
                     for (int j = 0; j < tabgameover.Length; j++)
                     {
@@ -244,62 +251,79 @@ namespace WindowsFormsApplication1
                     punkty = 0;
                     gracz = 232;
 
-                    //return 1;
+                    over = true;
                 }
+                punkty = punkty - 10;
                 trafienie++;
             }
-            //return 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
-            //port.Open();
-            if (port.IsOpen)
+
+            if (comboBox1.Text == "Wybierz port com")
             {
-                port.Open();
-                textBox1.Text = "OK";
+                MessageBox.Show("Nie wybrałeś portu com");
             }
             else
             {
-                MessageBox.Show("Urządzenie nie zostało podłączone");
+                port = new SerialPort(comboBox1.Text, 9600, Parity.None, 8, StopBits.One);
+
+                port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                    textBox1.Text = "OK";
+                }
+                else
+                {
+                    MessageBox.Show("Urządzenie nie zostało podłączone");
+                }
             }
         }
 
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            licznik++;
+
             var odczyt = port.ReadChar();
 
-            if (odczyt == 'A')
+            if (licznik == 2 && over == false)
             {
-                losujpozycje();
-                wrogowie();
-                wlewo();
-                czykolizja();
-            }
-            if (odczyt == 'D')
-            {
-                losujpozycje();
-                wrogowie();
-                wprawo();
-                czykolizja();
+                if (odczyt == 'A')
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wlewo();
+                    czykolizja();
+                }
+                if (odczyt == 'D')
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wprawo();
+                    czykolizja();
+                }
+
+                if (odczyt == 'W')
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wgore();
+                    czykolizja();
+                }
+
+                if (odczyt == 'S')
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wdol();
+                    czykolizja();
+                }
+                licznik = 0;
+                ruchy++;
             }
 
-            if (odczyt == 'W')
-            {
-                losujpozycje();
-                wrogowie();
-                wgore();
-                czykolizja();
-            }
-
-            if (odczyt == 'S')
-            {
-                losujpozycje();
-                wrogowie();
-                wdol();
-                czykolizja();
-            }
             if (odczyt == 'B')
             {
                 DialogResult przycisk = MessageBox.Show("Czy chcesz zacząć grę od nowa?", "Nowa gra", MessageBoxButtons.YesNo);
@@ -317,33 +341,40 @@ namespace WindowsFormsApplication1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W)
+            licznik++;
+
+            if (licznik == 3 && over == false)
             {
-                losujpozycje();
-                wrogowie();
-                wgore();
-                czykolizja();
-            }
-            if (e.KeyCode == Keys.A)
-            {
-                losujpozycje();
-                wrogowie();
-                wlewo();
-                czykolizja();
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                losujpozycje();
-                wrogowie();
-                wdol();
-                czykolizja();
-            }
-            if (e.KeyCode == Keys.D)
-            {
-                losujpozycje();
-                wrogowie();
-                wprawo();
-                czykolizja();
+                if (e.KeyCode == Keys.W)
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wgore();
+                    czykolizja();
+                }
+                if (e.KeyCode == Keys.A)
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wlewo();
+                    czykolizja();
+                }
+                if (e.KeyCode == Keys.S)
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wdol();
+                    czykolizja();
+                }
+                if (e.KeyCode == Keys.D)
+                {
+                    losujpozycje();
+                    wrogowie();
+                    wprawo();
+                    czykolizja();
+                }
+                licznik = 0;
+                ruchy++;
             }
         }
 

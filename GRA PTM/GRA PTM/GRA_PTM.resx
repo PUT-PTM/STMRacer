@@ -5106,7 +5106,8 @@
     <value>17, 17</value>
   </metadata>
   <data name="label8.Text" xml:space="preserve">
-    <value>1) Aby rozpocząć grę kliknij przycisk połącz
+    <value>1) Aby rozpocząć grę wybierz port com z listy
+    i kliknij przycisk połącz
 2) gra rozpocznie się jeśli będzie 
     wyświetlony komunikat OK
 3) aby zakończyć grę kliknij rozłącz i zamknij 
